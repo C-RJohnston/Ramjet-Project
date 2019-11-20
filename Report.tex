@@ -1,8 +1,13 @@
-\documentclass[12pt]{IEEEtran}
+\documentclass[12pt,onecolumn]{IEEEtran}
 \usepackage{cite}
+\usepackage{float}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{caption}
 \graphicspath{{./images/}}
+
+\newcommand{\im}[3]{\begin{figure}[H]\begin{center}\includegraphics[scale=#1]{#2}\caption{#3}\captionsetup{justification=centering}\end{center}\end{figure}}
+
 \title{The Thermodynamics of a Ramjet}
 \author{%
   \IEEEauthorblockN{%
@@ -26,24 +31,16 @@
 \begin{document}
 
 \maketitle
-
-\includegraphics[scale=1]{T-S-Diagram-of-ramjet-engine}\cite{TS}
-
+\im{0.7}{A_Real_Ramjet}{A NACA engineer cleaning a Ramjet circa. 1950 \cite{nasa}}
 \section{Introduction}
-A Ramjet is an airbreathing engine that compresses air through a choke point without using active compression. As such, it requires to already be moving at speed to function. A typical ramjet operates from speeds of Mach 3 to Mach 6.\\
-\section{The Physical Ramjet}
-\subsection{Inlet}
-The inlet of the Ramjet is a narrow 
-\subsection{Combustion Chamber}
-\subsection{Nozzle}
+A Ramjet is an airbreathing engine that compresses air through a choke point without using active compression. As such, it requires to already be moving at speed to function. A typical ramjet operates from speeds of Mach 3 to Mach 6. This report will analyse a Ramjet through the lens of thermodynamics, using idealised Brayton cycles to dissect the sections of the jet and the state variables at each section.
 \section{The Brayton Cycle and The Ramjet}
-As a ramjet is a jet engine, it follows an engine cycle. Each component of the Ramjet can be mapped onto a section of an idealised Brayton Cycle.
+\im{0.6}{Brayton-cycle}{An idealised Brayton Cycle \cite{brayton}}
 \subsection{Inlet and Compressor}
 \subsection{Combustor}
 \subsection{Turbine and Nozzle}
 \subsection{Heat Rejection to Atmosphere}
 \section{Conclusion}
-
 
 \bibliography{references}
 \bibliographystyle{IEEEtran}
