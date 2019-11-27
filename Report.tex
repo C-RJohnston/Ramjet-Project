@@ -34,19 +34,43 @@
 \im{0.7}{A_Real_Ramjet}{A NACA engineer cleaning a ramjet circa. 1950 \cite{nasa}}
 \section{Introduction}
 A ramjet is an airbreathing engine which uses forward motion to compress air against a static conical compressor. As such, it can only generate thrust when already in motion. A typical ramjet operates from speeds of Mach 3 to Mach 6. This report will analyse a ramjet through the lens of thermodynamics, using idealised Brayton cycles to dissect the sections of the jet and the state variables in each section.
-\section{The Brayton Cycle and The Ramjet}
-\im{0.6}{Brayton-cycle}{An idealised Brayton Cycle \cite{brayton}}
-To aptly define the air, henceforth referred to as the working substance, it must be noted that the air of the atmosphere is comprised primarily of nitrogen and oxygen gas. Both gases are diatomic and, for the purposes of this report, can be considered ideal gases.
-\subsection{Inlet and Compression}
-The inlet of the ramjet consists of a diffuser which extends beyond the lip. Shock waves at the tip of the diffuser causes the working substance to lose energy as it enters the inlet. The working substance is slowed to Mach 1 by this process.\cite{ou2017thermodynamic} As the working substance travels down the inlet, it slows to an almost stationary speed. This compression of the working substance is considered to be adiabatic and reversible.\\
+\section{The Ramjet}
+\paragraph{Inlet}
+test
+\paragraph{Combustion Chamber}
+\paragraph{Nuzzles your Ramjet}
+UwU OwO Owo vWv
+\section{Efficiency}
+The efficiency of the ramjet is the ratio of the propulsive power to the fuel power.\cite{greitzer_spakovsky_waitz}\\
 \begin{center}
-$dV<0$\\
-$dQ=0$\\
-$dS=0$\\ where V, Q, and S are volume, heat, and entropy, respectively.\\
+$ \eta = \frac{Tv}{\dot{m}_f h}. $
 \end{center}
-\subsection{Combustor and Combustion}
-\subsection{Nozzle and Expansion}
-\subsection{Heat Rejection and cooling}
+To derive a working expression for the efficiency, consider the thermal and propulsion aspects of the efficiency individually.\\
+\begin{center}
+$ \eta = \eta_{thermal} \eta_{propulsive}$
+\end{center}
+where\\
+\begin{center}
+$
+\eta_{thermal}=\frac{\Delta E_K}{\dot{m}_{fuel}h}
+$
+$
+\eta_{propulsive}=\frac{Tv}{\Delta E_K}
+$
+\vspace{1mm}
+where\\
+\vspace{1mm}
+$
+E_K = $ Kinetic energy (J)\\
+\vspace{1mm}
+$\dot{m}_{fuel} = $ Rate of fuel burned $(kgs^{-1})$\\
+\vspace{1mm}
+$h = $ Fuel energy per unit mass $(Jkg^{-1})$\\
+\vspace{1mm}
+$T = $ Thrust (N)\\
+\vspace{1mm}
+$v = $ Velocity of the air entering the ramjet $(ms^{-1})$\\
+\end{center}
 \section{Conclusion}
 
 \bibliography{references}
