@@ -31,10 +31,12 @@
 \begin{document}
 
 \maketitle
-\im{0.7}{A_Real_Ramjet}{A NACA engineer cleaning a ramjet circa. 1950 \cite{nasa}}
+\vspace{0mm}
+\im{0.6}{A_Real_Ramjet}{A NACA engineer cleaning a ramjet circa. 1950 \cite{nasa}}
 \section{Introduction}
 A ramjet is an airbreathing engine which uses forward motion to compress air against a static conical compressor. As such, it can only generate thrust when already in motion. A typical ramjet operates from speeds of Mach 3 to Mach 6. This report will analyse a ramjet through the lens of thermodynamics, using idealised Brayton cycles to dissect the sections of the jet and the state variables in each section.
 \section{The Ramjet}
+talk about brayton efficiency up here
 \paragraph{Inlet}
 test
 \paragraph{Combustion Chamber}
@@ -43,34 +45,56 @@ UwU OwO Owo vWv
 \section{Efficiency}
 The efficiency of the ramjet is the ratio of the propulsive power to the fuel power.\cite{greitzer_spakovsky_waitz}\\
 \begin{center}
-$ \eta = \frac{Tv}{\dot{m}_f h}. $
+$ \eta = \frac{Tv}{\dot{m}_f h}.$ (1)
 \end{center}
 To derive a working expression for the efficiency, consider the thermal and propulsion aspects of the efficiency individually.\\
 \begin{center}
-$ \eta = \eta_{thermal} \eta_{propulsive}$
+$ \eta = \eta_{thermal} \eta_{propulsive}$ (2)
 \end{center}
 where\\
 \begin{center}
-$
-\eta_{thermal}=\frac{\Delta E_K}{\dot{m}_{fuel}h}
-$
-$
-\eta_{propulsive}=\frac{Tv}{\Delta E_K}
-$
+$\eta_{propulsive}=\frac{Tv}{\Delta E_K} $ (4)
 \vspace{1mm}
-where\\
-\vspace{1mm}
+and\\
+\vspace{2mm}
 $
 E_K = $ Kinetic energy (J)\\
 \vspace{1mm}
 $\dot{m}_{fuel} = $ Rate of fuel burned $(kgs^{-1})$\\
-\vspace{1mm}
-$h = $ Fuel energy per unit mass $(Jkg^{-1})$\\
+\vspace{1mm}7
 \vspace{1mm}
 $T = $ Thrust (N)\\
 \vspace{1mm}
-$v = $ Velocity of the air entering the ramjet $(ms^{-1})$\\
+$v = $ Velocity of the air entering the ramjet. $(ms^{-1})$\\
 \end{center}
+While the thermal efficiency is the same for that of the idealised Brayton cycle\\
+\vspace{1mm}
+\begin{center}
+$\eta_{thermal}=\frac{W_{net}}{Q_{in}}=1-\frac{T_{Inlet}}{T_{Exhaust}}$. (5)\\
+\vspace{2mm}
+where\\
+$W_{net} = $ net work done (J)\\
+\vspace{1mm}
+$Q_{in} = $ the increase in heat energy (J)\\
+\vspace{1mm}
+$T_{Inlet} = $ Temperature of the air at the inlet (K)\\
+\vspace{1mm}
+$T_{Exhaust} $ Temperature of the air at the exhaust (K)\\
+\end{center}
+Which shows the ramjet is most thermally efficient when there is a large temperature gradient.
+\vspace{3mm}
+To analyse the propulsive efficiency, the thrust must be estimated as\\
+\begin{center}
+$T\approx\dot{m}(v-v_f)$ (6)
+\end{center}
+\vspace{1mm}
+such that\\
+\begin{center}
+$\eta_p\approx\frac{\dot{m}v(v_f-v)}{\frac{\dot{m}}{2}(v_f^2-v^2)}$ (7)\\
+\vspace{1mm}
+$=\frac{2}{1+\frac{v_f}{v}}$. (8)
+\end{center}
+The propulsive efficiency of the ramjet is thus at its most efficient when the exit velocity of the air is equal to that of the inlet velocity of the air. When the exit velocity is much higher than the inlet velocity, the ramjet is operating under inefficient conditions.
 \section{Conclusion}
 
 \bibliography{references}
