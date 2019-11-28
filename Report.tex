@@ -4,6 +4,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{amsmath}
 \graphicspath{{./images/}}
 
 \newcommand{\im}[4]{\begin{figure}[H]\begin{center}\includegraphics[scale=#1]{#2}\caption{#3}\label{Fig #4}\captionsetup{justification=centering}\end{center}\end{figure}}
@@ -32,12 +33,11 @@
 
 \maketitle
 \vspace{0mm}
-\im{0.6}{A_Real_Ramjet}{A NACA engineer cleaning a ramjet circa. 1950 \cite{nasa}}{1}
+\im{1.3}{A_Real_Ramjet}{A NACA engineer cleaning a ramjet circa. 1950 \cite{nasa}}{1}
 \pagebreak
 \section{Introduction}
 A ramjet is an airbreathing engine which uses forward motion to compress air against a static conical compressor. As such, it can only generate thrust when already in motion. A typical ramjet operates from speeds of Mach 3 to Mach 6. This report will analyse a ramjet through the lens of thermodynamics, using idealised Brayton cycles to dissect the sections of the jet and the state variables in each section.
 \section{The Ramjet}
-talk about brayton efficiency up here
 \im{0.5}{Brayton-cycle}{The idealised Brayton cycle \cite{Brayton}}{2}
 \paragraph{Inlet}
 As incoming air enters the through the inlet, isentropic diffusion and compression occurs. This corresponds to the vertical, isentropic line from 0 to 2 in figure \ref{Fig 2}.\\
@@ -45,66 +45,70 @@ As incoming air enters the through the inlet, isentropic diffusion and compressi
 As air passes the fuel burner, it undergoes constant pressure combustion. The line from 2 to 3 in figure \ref{Fig 2} displays this process.\\ 
 \paragraph{Nozzle}
 When the air passes through the nozzle, it undergoes isentropic expansion. This can be seen in the isentropic line from 3 to 4 in the figure. To complete the cycle, heat is rejected to the atmosphere by exhausting the air. Unlike a genuine closed cycle, the working substance is not recycled due to the large reservoir of surrounding air.\\
+\paragraph{Efficiency}
+The efficiency of the Brayton cycle is given by the ratio of the net work done by the jet to the heat into the system.
+\begin{equation}
+net\, work\, per\, unit\, mass = c_p [(T_{CombustorExit}-T_{CompressorExit}) + (T_{Inlet}-T_{Exhaust})]
+\end{equation}
+\begin{equation}
+net\,work\,per\,unit\,mass = q_1 + q_2
+\end{equation}
+where $q_1,q_2$ are the heats received \textbf{by} the system in the combustor and the exhaust respectively. ($q_2$ is negative)
+\begin{equation}
+\eta = \frac{net\,work}{heat\,in} = \frac{q_1 + q_2}{q_1} = 1-\frac{T_{inlet}(\frac{T_{exhaust}}{T_{inlet}}-1)}{T_{compressorExit}(\frac{T_{combustorExit}}{T_{compressorExit}}-1)}
+\end{equation}
+Exhaust $\rightarrow$ inlet and compressorExit $\rightarrow$ combustorExit are isobaric processes, and the rest of the cycle is adiabatic and isentropic, so:
+\begin{equation}
+\frac{P_{exhaust}}{P_{inlet}} = \frac{P_{combustorExit}}{P_{compressorExit}}\;and\; \frac{T_{exhaust}}{T_{inlet}} = \frac{T_{combustorExit}}{T_{compressorExit}}
+\end{equation}
+so
+\begin{equation}
+\eta_B = 1 - \frac{T_{inlet}}{T_{compressorExit}} \label{eq:5}
+\end{equation}
+Using that the temperature rise in the compressor is
+\begin{equation}
+\frac{T_{compressorExit}}{T_{inlet}} = 1 + \frac{\gamma -1}{2}M_0^2
+\end{equation}
+where $M_0$ is the Mach number
+\begin{equation}
+\eta = \frac{[\frac{\gamma -1}{2}]M_0^2}{1+[\frac{\gamma -1}{2}]M_0^2}
+\end{equation}
 \section{Efficiency}
 \begin{flushleft}
 The efficiency of the ramjet is the ratio of the propulsive power to the fuel power.\cite{greitzer_spakovsky_waitz}\\
-\begin{center}
-$ \eta = \frac{Tv}{\dot{m}_f h}.$ (1)
-\end{center}
+\begin{equation}
+ \eta = \frac{Tv}{\dot{m}_f h}
+\end{equation}
 To derive a working expression for the efficiency, consider the thermal and propulsion aspects of the efficiency individually.\\
-\begin{center}
-$ \eta = \eta_{thermal} \eta_{propulsive}$ (2)
-\end{center}
+\begin{equation}
+\eta = \eta_{thermal}\,\eta_{propulsive}
+\end{equation}
 where\\
-\begin{center}
-$\eta_{propulsive}=\frac{Tv}{\Delta E_K} $ (3)
-\vspace{1mm}
-and\\
-\vspace{2mm}
-$
-E_K = $ Kinetic energy (J)\\
-\vspace{1mm}
-$\dot{m}_{fuel} = $ Rate of fuel burned $(kgs^{-1})$\\
-\vspace{1mm}
-$h = $ fuel energy per unit mass $(Jkg^{-1})$\\
-\vspace{1mm}
-$T = $ Thrust (N)\\
-\vspace{1mm}
-$v = $ Velocity of the air entering the ramjet. $(ms^{-1})$\\
-\end{center}
-While the thermal efficiency is the same for that of the idealised Brayton cycle\\
-\vspace{1mm}
-\begin{center}
-$\eta_{thermal}=\frac{W_{net}}{Q_{in}}=1-\frac{T_{Inlet}}{T_{Compressor}}$. (4)\\
-\vspace{2mm}
-\end{center}
-where\\
-\begin{center}
-$W_{net} = $ net work done (J)\\
-\vspace{1mm}
-$Q_{in} = $ the increase in heat energy (J)\\
-\vspace{1mm}
-$T_{Inlet} = $ Temperature of the air at the inlet (K)\\
-\vspace{1mm}
-$T_{Compressor} $ Temperature of the air at end of the compressor (K)\\
-\end{center}
-Which shows the ramjet is most thermally efficient when there is a large temperature difference at the inlet and the exhaust.
-\vspace{3mm}
+\begin{equation}
+\eta_{propulsive}=\frac{Tv}{\Delta E_K}
+\end{equation}
+where
+\[E_K =  Kinetic\,energy\;(J)\]
+\[\dot{m}_{fuel} =  Rate\;of\;fuel\;burned\:(kgs^{-1})\]
+\[h = fuel\,energy\,per\;unit\;mass\:(Jkg^{-1})\]
+\[T =  Thrust\:(N)\]
+\[v =  Velocity\;of\;the\;air\;entering\;the\;ramjet\:(ms^{-1})\]
+
+
+While the thermal efficiency is the same for that of the idealised Brayton cycle \eqref{eq:5}\\
+Which shows the ramjet is most thermally efficient when there is a large temperature difference at the inlet and the exhaust.\\
 To analyse the propulsive efficiency, the thrust must be estimated as\\
-\begin{center}
-$T\approx\dot{m}(v-v_f)$ (5)
-\end{center}
+\begin{equation}
+T\approx\dot{m}(v-v_f)
+\end{equation}
 \vspace{1mm}
 such that\\
-\begin{center}
-$\eta_p\approx\frac{\dot{m}v(v_f-v)}{\frac{\dot{m}}{2}(v_f^2-v^2)}$ (6)\\
-\vspace{1mm}
-$=\frac{2}{1+\frac{v_f}{v}}$. (7)
-\end{center}
+\begin{equation}
+\eta_p\approx\frac{\dot{m}v(v_f-v)}{\frac{\dot{m}}{2}(v_f^2-v^2)}=\frac{2}{1+\frac{v_f}{v}}
+\end{equation}
+
 The propulsive efficiency of the ramjet is thus at its most efficient when the air exit velocity is equal to the air inlet velocity. When the exit velocity is much higher than the inlet velocity, the ramjet is operating under inefficient conditions.
 \end{flushleft}
-\section{Conclusion}
-
 \bibliography{references}
 \bibliographystyle{IEEEtran}
 
