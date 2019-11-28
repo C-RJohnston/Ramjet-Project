@@ -33,13 +33,14 @@
 \maketitle
 \vspace{0mm}
 \im{0.6}{A_Real_Ramjet}{A NACA engineer cleaning a ramjet circa. 1950 \cite{nasa}}{1}
+\pagebreak
 \section{Introduction}
 A ramjet is an airbreathing engine which uses forward motion to compress air against a static conical compressor. As such, it can only generate thrust when already in motion. A typical ramjet operates from speeds of Mach 3 to Mach 6. This report will analyse a ramjet through the lens of thermodynamics, using idealised Brayton cycles to dissect the sections of the jet and the state variables in each section.
 \section{The Ramjet}
 talk about brayton efficiency up here
 \im{0.5}{Brayton-cycle}{The idealised Brayton cycle \cite{Brayton}}{2}
 \paragraph{Inlet}
-As incoming air enters the through the inlet, isentropic infusion and compression occurs. This corresponds to the vertical, isentropic line from 0 to 2 in figure \ref{Fig 2}.\\
+As incoming air enters the through the inlet, isentropic diffusion and compression occurs. This corresponds to the vertical, isentropic line from 0 to 2 in figure \ref{Fig 2}.\\
 \paragraph{Combustion Chamber}
 As air passes the fuel burner, it undergoes constant pressure combustion. The line from 2 to 3 in figure \ref{Fig 2} displays this process.\\ 
 \paragraph{Nozzle}
@@ -74,7 +75,7 @@ $v = $ Velocity of the air entering the ramjet. $(ms^{-1})$\\
 While the thermal efficiency is the same for that of the idealised Brayton cycle\\
 \vspace{1mm}
 \begin{center}
-$\eta_{thermal}=\frac{W_{net}}{Q_{in}}=1-\frac{T_{Inlet}}{T_{Exhaust}}$. (4)\\
+$\eta_{thermal}=\frac{W_{net}}{Q_{in}}=1-\frac{T_{Inlet}}{T_{Compressor}}$. (4)\\
 \vspace{2mm}
 \end{center}
 where\\
@@ -85,7 +86,7 @@ $Q_{in} = $ the increase in heat energy (J)\\
 \vspace{1mm}
 $T_{Inlet} = $ Temperature of the air at the inlet (K)\\
 \vspace{1mm}
-$T_{Exhaust} $ Temperature of the air at the exhaust (K)\\
+$T_{Compressor} $ Temperature of the air at end of the compressor (K)\\
 \end{center}
 Which shows the ramjet is most thermally efficient when there is a large temperature difference at the inlet and the exhaust.
 \vspace{3mm}
